@@ -1,4 +1,4 @@
-name: 'Hello World'
+name: tito-composite-action
 description: 'Greet someone'
 inputs:
   who-to-greet:  # id of input
