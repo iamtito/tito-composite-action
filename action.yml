@@ -1,10 +1,30 @@
 name: tito-composite-action
-description: 'Greet someone'
+description: "Greet someone"
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  who-to-greet: # id of input
+    description: "Who to greet"
     required: true
-    default: 'World'
+    default: "World"
+  AWS_ACCESS_KEY_ID:
+    description: "AWS Access key ID"
+    required: false
+    default: ""
+  AWS_SECRET_ACCESS_KEY:
+    description: "Secret keys"
+    required: false
+    default: ""
+  AWS_DEFAULT_REGION:
+    description: region to deploy to
+    required: false
+    default: "us-east-1"
+  BUCKET:
+    description: "S3 bucket"
+    required: false
+    default: ""
+  s3:
+    description: "Determine if you want to check s3 objects"
+    required: false
+    default: false
 outputs:
   random-number:
     description: "Random number"
@@ -19,3 +39,11 @@ runs:
       shell: bash
     - run: ${{ github.action_path }}/goodbye.sh ${{ inputs.who-to-greet }}
       shell: bash
+    - name: S3 Bucket Checker
+      if: ${{ inputs.s3 }} == 'true'
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ inputs.AWS_DEFAULT_REGION }}
+      run: |
+        aws s3 ls s3://${{ inputs.BUCKET }}
