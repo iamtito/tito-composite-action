@@ -10,5 +10,9 @@ jobs:
         uses: iamtito/tito-composite-action@main
         with:
           who-to-greet: 'Tito the Fish'
+          s3: true
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          BUCKET: "kabirinfrastructurexyz/"
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
