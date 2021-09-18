@@ -39,11 +39,10 @@ runs:
       shell: bash
     - run: ${{ github.action_path }}/goodbye.sh ${{ inputs.who-to-greet }}
       shell: bash
-    - name: S3 Bucket Checker
+    - run: aws s3 ls s3://${{ inputs.BUCKET }}
+      shell: bash
       if: ${{ inputs.s3 }} == 'true'
       env:
         AWS_ACCESS_KEY_ID: ${{ inputs.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ inputs.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ inputs.AWS_DEFAULT_REGION }}
-      run: |
-        aws s3 ls s3://${{ inputs.BUCKET }}
