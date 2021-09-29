@@ -49,9 +49,9 @@ runs:
         AWS_ACCESS_KEY_ID: ${{ inputs.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ inputs.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ inputs.AWS_DEFAULT_REGION }}
-    - run: |
-        set -evx
-        if [ ${{ inputs.checker }} == 'true' ]; then
-          mkdir testingtito
-        fi
-      shell: bash
+    # - run: |
+    #     set -evx
+    #     if [ ${{ inputs.checker }} == 'true' ]; then
+    #       mkdir testingtito
+    #     fi
+    #   shell: bash

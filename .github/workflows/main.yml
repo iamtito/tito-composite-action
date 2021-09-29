@@ -14,9 +14,10 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           BUCKET: "kabirinfrastructurexyz/"
+          # checker: 'true'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
       - run: |
           pwd
           ls -larh
-        bash: shell
+        shell: bash
