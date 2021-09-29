@@ -16,3 +16,7 @@ jobs:
           BUCKET: "kabirinfrastructurexyz/"
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
+      - run: |
+          pwd
+          ls -larh
+        bash: shell
