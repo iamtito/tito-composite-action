@@ -55,3 +55,9 @@ runs:
           mkdir testingtito
         fi
       shell: bash
+    - name: testrue
+      run: |
+        set -evx
+        mkdir testrue
+      shell: bash
+      if: ${{ inputs.checker }} == 'true'
