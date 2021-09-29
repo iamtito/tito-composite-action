@@ -21,3 +21,5 @@ jobs:
           pwd
           ls -larh
         shell: bash
+        with:
+          working-directory: testingtito
