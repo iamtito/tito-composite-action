@@ -20,6 +20,6 @@ jobs:
       - run: |
           pwd
           ls -larh
-        shell: bash
+        # shell: bash
         with:
           working-directory: testingtito
